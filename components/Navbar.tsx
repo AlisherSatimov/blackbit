@@ -2,6 +2,7 @@
 
 import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
 import { navLinks } from '@/lib/data'
 
 function SunIcon() {
@@ -112,23 +113,36 @@ export function Navbar() {
       </nav>
 
       {/* Mobile dropdown menu */}
-      {menuOpen && (
-        <div className="md:hidden border-t border-[var(--border)] bg-[var(--background)]/95 backdrop-blur-md">
-          <ul className="max-w-5xl mx-auto px-6 py-4 flex flex-col gap-4">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
-                  onClick={closeMenu}
-                  className="font-mono text-xs tracking-widest uppercase text-[var(--muted)] hover:text-[var(--foreground)] transition-colors block py-2"
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.2, ease: 'easeInOut' }}
+            className="md:hidden overflow-hidden border-t border-[var(--border)] bg-[var(--background)]/95 backdrop-blur-md"
+          >
+            <ul className="max-w-5xl mx-auto px-6 py-4 flex flex-col gap-4">
+              {navLinks.map((link, i) => (
+                <motion.li
+                  key={link.href}
+                  initial={{ opacity: 0, x: -8 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.05 }}
                 >
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+                  <a
+                    href={link.href}
+                    onClick={closeMenu}
+                    className="font-mono text-xs tracking-widest uppercase text-[var(--muted)] hover:text-[var(--foreground)] transition-colors block py-2"
+                  >
+                    {link.label}
+                  </a>
+                </motion.li>
+              ))}
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   )
 }
