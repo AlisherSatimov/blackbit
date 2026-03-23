@@ -50,6 +50,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://blackbit.dev',
   },
+  verification: {
+    google: '7ySnK5O01zPMklrU5q0566uSmpgaKxOpP9v1lxvQc18',
+  },
   robots: {
     index: true,
     follow: true,
