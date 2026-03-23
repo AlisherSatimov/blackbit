@@ -1,6 +1,8 @@
 import { Suspense } from 'react'
 import { Navbar } from '@/components/Navbar'
 import { Hero } from '@/components/Hero'
+import { About } from '@/components/About'
+import { Experience } from '@/components/Experience'
 import { Skills } from '@/components/Skills'
 import { Projects } from '@/components/Projects'
 import { Certificates } from '@/components/Certificates'
@@ -31,6 +33,16 @@ export default function Home() {
       <Navbar />
       <ErrorBoundary>
         <Hero />
+      </ErrorBoundary>
+      <ErrorBoundary>
+        <Suspense fallback={<SectionSkeleton />}>
+          <About />
+        </Suspense>
+      </ErrorBoundary>
+      <ErrorBoundary>
+        <Suspense fallback={<SectionSkeleton />}>
+          <Experience />
+        </Suspense>
       </ErrorBoundary>
       <ErrorBoundary>
         <Suspense fallback={<SectionSkeleton />}>

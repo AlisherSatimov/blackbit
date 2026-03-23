@@ -31,7 +31,7 @@ export function Skills() {
         transition={{ duration: 0.5 }}
         className="flex items-center gap-4 mb-16"
       >
-        <span className="font-mono text-xs text-[var(--muted)] tracking-widest">02</span>
+        <span className="font-mono text-xs text-[var(--muted)] tracking-widest">03</span>
         <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Skills</h2>
         <div className="flex-1 h-px bg-[var(--border)]" />
       </motion.div>

@@ -5,7 +5,7 @@ export const siteConfig = {
     'Frontend Developer from Xorazm, Uzbekistan. Specializing in React, Next.js, and TypeScript. Building fast, accessible, and beautiful web experiences.',
   url: 'https://blackbit.dev',
   available: true,
-  availableText: 'Available for work',
+  availableText: 'Open to part-time / remote',
   social: {
     github: 'https://github.com/AlisherSatimov',
     linkedin: 'https://www.linkedin.com/in/alishersatimov/',

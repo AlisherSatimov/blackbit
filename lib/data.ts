@@ -55,12 +55,36 @@ export const skillGroups: SkillGroup[] = [
   },
 ]
 
+export interface Experience {
+  company: string
+  role: string
+  period: string
+  current: boolean
+  tasks: string[]
+  tech: string[]
+}
+
+export const experiences: Experience[] = [
+  {
+    company: 'Raqamli Ta\'limni Rivojlantirish Markazi',
+    role: 'IT Mentor & Frontend Developer',
+    period: 'Sep 2024 — Present',
+    current: true,
+    tasks: [
+      'Teaching web development to school students — from zero to junior-ready level',
+      'Guiding students through real project development, code reviews, and best practices',
+      'Preparing students for technical interviews and job placement',
+    ],
+    tech: ['React.js', 'JavaScript', 'HTML/CSS', 'Git'],
+  },
+]
+
 export interface Project {
   number: string
   name: string
   description: string
   tech: string[]
-  link: string
+  link?: string
   status: 'Live' | 'WIP' | 'Archived'
 }
 
@@ -69,10 +93,18 @@ export const projects: Project[] = [
     number: '01',
     name: '3D Clinic',
     description:
-      'Full-scale dental clinic management system with role-based access for Admin, Manager, and Dentist. Covers patient records, medical history, financial management, billing, and appointment tracking.',
+      'Full-scale dental clinic management system that eliminated paper-based workflows entirely. Role-based access for Admin, Manager, and Dentist — covering patient records, per-tooth medical history, financial management, billing, file-based analysis archive, and appointment tracking.',
     tech: ['React.js', 'React Query', 'TypeScript', 'REST API'],
     link: 'https://3dclinic.uz',
     status: 'Live',
+  },
+  {
+    number: '02',
+    name: 'Yangiariq IT-Park',
+    description:
+      'Official website for Yangiariq IT-Park — a government tech initiative in Uzbekistan. Leading the full frontend architecture and implementation for the public-facing platform.',
+    tech: ['Next.js', 'TypeScript', 'Tailwind CSS'],
+    status: 'WIP',
   },
 ]
 
@@ -126,9 +158,10 @@ export const contactLinks: ContactLink[] = [
 ]
 
 export const navLinks = [
+  { href: '#about', label: 'About' },
+  { href: '#experience', label: 'Experience' },
   { href: '#skills', label: 'Skills' },
   { href: '#projects', label: 'Projects' },
-  { href: '#certificates', label: 'Certificates' },
   { href: '#contact', label: 'Contact' },
 ]
 
