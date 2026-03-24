@@ -33,8 +33,8 @@ export const skillGroups: SkillGroup[] = [
     category: 'Styling',
     skills: [
       { name: 'Tailwind CSS', level: 'Advanced' },
-      { name: 'SCSS / Sass', level: 'Intermediate' },
-      { name: 'CSS Modules', level: 'Intermediate' },
+      { name: 'SCSS / Sass', level: 'Advanced' },
+      { name: 'CSS Modules', level: 'Advanced' },
     ],
   },
   {
@@ -43,14 +43,6 @@ export const skillGroups: SkillGroup[] = [
       { name: 'Git', level: 'Advanced' },
       { name: 'Docker', level: 'Intermediate' },
       { name: 'Figma', level: 'Intermediate' },
-    ],
-  },
-  {
-    category: 'Backend Basics',
-    skills: [
-      { name: 'Node.js', level: 'Intermediate' },
-      { name: 'PostgreSQL', level: 'Intermediate' },
-      { name: 'MongoDB', level: 'Intermediate' },
     ],
   },
 ]
