@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
-import { roles } from '@/lib/data'
+import { useLanguage } from '@/contexts/LanguageContext'
 import { siteConfig } from '@/lib/config'
 
 const fadeUp = {
@@ -20,9 +20,16 @@ const container = {
 }
 
 export function Hero() {
+  const { t } = useLanguage()
+  const roles = t.roles
   const [roleIndex, setRoleIndex] = useState(0)
   const [displayed, setDisplayed] = useState('')
   const [deleting, setDeleting] = useState(false)
+
+  useEffect(() => {
+    setDisplayed('')
+    setDeleting(false)
+  }, [roleIndex, roles])
 
   useEffect(() => {
     const current = roles[roleIndex]
@@ -40,7 +47,7 @@ export function Hero() {
     }
 
     return () => clearTimeout(timeout)
-  }, [displayed, deleting, roleIndex])
+  }, [displayed, deleting, roleIndex, roles])
 
   return (
     <section className="relative min-h-screen flex flex-col justify-center max-w-5xl mx-auto px-6 pt-24 pb-24 md:pb-16">
@@ -54,7 +61,7 @@ export function Hero() {
         {siteConfig.available && (
           <motion.div variants={fadeUp} className="mb-8">
             <span className="font-mono text-xs tracking-widest text-[var(--muted)] uppercase border border-[var(--border)] px-3 py-1">
-              {siteConfig.availableText}
+              {t.hero.available}
             </span>
           </motion.div>
         )}
@@ -83,8 +90,7 @@ export function Hero() {
           variants={fadeUp}
           className="max-w-xl text-base md:text-lg text-[var(--muted)] leading-relaxed mb-12"
         >
-          Based in Xorazm, Uzbekistan. I build fast, accessible, and polished web experiences
-          using React and Next.js. 3 years of turning ideas into products.
+          {t.hero.bio}
         </motion.p>
 
         {/* CTAs */}
@@ -93,20 +99,20 @@ export function Hero() {
             href="#projects"
             className="px-6 py-3 bg-[var(--foreground)] text-[var(--background)] font-mono text-sm tracking-widest uppercase hover:opacity-80 transition-opacity"
           >
-            View Work
+            {t.hero.viewWork}
           </a>
           <a
             href="#contact"
             className="px-6 py-3 border border-[var(--border)] text-[var(--foreground)] font-mono text-sm tracking-widest uppercase hover:border-[var(--foreground)] transition-colors"
           >
-            Get in Touch
+            {t.hero.getInTouch}
           </a>
         </motion.div>
       </motion.div>
 
       {/* Scroll indicator — hidden on mobile/tablet to avoid overlap with buttons */}
       <div className="hidden md:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-2 opacity-40">
-        <span className="font-mono text-xs text-[var(--muted)]">scroll</span>
+        <span className="font-mono text-xs text-[var(--muted)]">{t.hero.scroll}</span>
         <div className="w-px h-12 bg-[var(--muted)] animate-pulse" />
       </div>
     </section>

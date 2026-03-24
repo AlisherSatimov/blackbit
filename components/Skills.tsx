@@ -2,11 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { skillGroups } from '@/lib/data'
-
-const levelColor: Record<string, string> = {
-  Advanced: 'text-[var(--foreground)]',
-  Intermediate: 'text-[var(--muted)]',
-}
+import { useLanguage } from '@/contexts/LanguageContext'
 
 const container = {
   hidden: {},
@@ -21,6 +17,25 @@ const item = {
 }
 
 export function Skills() {
+  const { t } = useLanguage()
+
+  const categoryLabels: Record<string, string> = {
+    Frontend: t.skills.categories.frontend,
+    'State & Data': t.skills.categories.stateData,
+    Styling: t.skills.categories.styling,
+    Tools: t.skills.categories.tools,
+  }
+
+  const levelLabel: Record<string, string> = {
+    Advanced: t.skills.advanced,
+    Intermediate: t.skills.intermediate,
+  }
+
+  const levelColor: Record<string, string> = {
+    Advanced: 'text-[var(--foreground)]',
+    Intermediate: 'text-[var(--muted)]',
+  }
+
   return (
     <section id="skills" className="max-w-5xl mx-auto px-6 py-24">
       {/* Section header */}
@@ -32,7 +47,7 @@ export function Skills() {
         className="flex items-center gap-4 mb-16"
       >
         <span className="font-mono text-xs text-[var(--muted)] tracking-widest">03</span>
-        <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Skills</h2>
+        <h2 className="text-3xl md:text-4xl font-bold tracking-tight">{t.skills.title}</h2>
         <div className="flex-1 h-px bg-[var(--border)]" />
       </motion.div>
 
@@ -51,7 +66,7 @@ export function Skills() {
             className="border border-[var(--border)] p-6 hover:border-[var(--muted)] hover:shadow-lg transition-all duration-300"
           >
             <h3 className="font-mono text-xs tracking-widest uppercase text-[var(--muted)] mb-4">
-              {group.category}
+              {categoryLabels[group.category] ?? group.category}
             </h3>
             <ul className="space-y-3">
               {group.skills.map((skill) => (
@@ -60,7 +75,7 @@ export function Skills() {
                     {skill.name}
                   </span>
                   <span className="font-mono text-xs text-[var(--muted)] opacity-60">
-                    {skill.level}
+                    {levelLabel[skill.level] ?? skill.level}
                   </span>
                 </li>
               ))}

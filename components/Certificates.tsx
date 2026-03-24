@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { certificates } from '@/lib/data'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 const container = {
   hidden: {},
@@ -14,6 +15,8 @@ const item = {
 }
 
 export function Certificates() {
+  const { t } = useLanguage()
+
   return (
     <section id="certificates" className="max-w-5xl mx-auto px-6 py-24">
       {/* Section header */}
@@ -25,7 +28,7 @@ export function Certificates() {
         className="flex items-center gap-4 mb-16"
       >
         <span className="font-mono text-xs text-[var(--muted)] tracking-widest">05</span>
-        <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Certificates</h2>
+        <h2 className="text-3xl md:text-4xl font-bold tracking-tight">{t.certificates.title}</h2>
         <div className="flex-1 h-px bg-[var(--border)]" />
       </motion.div>
 
@@ -56,7 +59,7 @@ export function Certificates() {
                 {cert.name}
               </h3>
               <p className="text-sm text-[var(--muted)] leading-relaxed max-w-2xl">
-                {cert.description}
+                {t.certificates.description}
               </p>
             </div>
             <motion.div

@@ -3,7 +3,8 @@
 import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { navLinks } from '@/lib/data'
+import { useLanguage } from '@/contexts/LanguageContext'
+import { LanguageSwitcher } from '@/components/LanguageSwitcher'
 
 function SunIcon() {
   return (
@@ -43,6 +44,7 @@ function CloseIcon() {
 
 export function Navbar() {
   const { theme, setTheme } = useTheme()
+  const { t } = useLanguage()
   const [mounted, setMounted] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
@@ -55,6 +57,14 @@ export function Navbar() {
   }, [])
 
   const closeMenu = () => setMenuOpen(false)
+
+  const navItems = [
+    { href: '#about', label: t.nav.about },
+    { href: '#experience', label: t.nav.experience },
+    { href: '#skills', label: t.nav.skills },
+    { href: '#projects', label: t.nav.projects },
+    { href: '#contact', label: t.nav.contact },
+  ]
 
   return (
     <header
@@ -75,7 +85,7 @@ export function Navbar() {
 
         {/* Desktop Links */}
         <ul className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
+          {navItems.map((link) => (
             <li key={link.href}>
               <a
                 href={link.href}
@@ -88,7 +98,10 @@ export function Navbar() {
         </ul>
 
         {/* Right controls */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-3">
+          {/* Language switcher */}
+          {mounted && <LanguageSwitcher />}
+
           {/* Theme toggle */}
           {mounted && (
             <button
@@ -123,7 +136,7 @@ export function Navbar() {
             className="md:hidden overflow-hidden border-t border-[var(--border)] bg-[var(--background)]/95 backdrop-blur-md"
           >
             <ul className="max-w-5xl mx-auto px-6 py-4 flex flex-col gap-4">
-              {navLinks.map((link, i) => (
+              {navItems.map((link, i) => (
                 <motion.li
                   key={link.href}
                   initial={{ opacity: 0, x: -8 }}

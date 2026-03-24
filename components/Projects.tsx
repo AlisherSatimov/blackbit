@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { projects, Project } from '@/lib/data'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 const container = {
   hidden: {},
@@ -19,16 +20,18 @@ const statusStyle: Record<Project['status'], string> = {
   Archived: 'text-[var(--muted)] border-[var(--border)]',
 }
 
-function ProjectCard({ project }: { project: Project }) {
+function ProjectCard({ project, statusLabel, description }: {
+  project: Project
+  statusLabel: string
+  description: string
+}) {
   const inner = (
     <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
       <div className="flex-1">
         <div className="flex items-center gap-3 mb-4">
           <span className="font-mono text-xs text-[var(--muted)]">{project.number}</span>
-          <span
-            className={`font-mono text-xs tracking-widest border px-2 py-0.5 ${statusStyle[project.status]}`}
-          >
-            {project.status}
+          <span className={`font-mono text-xs tracking-widest border px-2 py-0.5 ${statusStyle[project.status]}`}>
+            {statusLabel}
           </span>
         </div>
 
@@ -37,16 +40,16 @@ function ProjectCard({ project }: { project: Project }) {
         </h3>
 
         <p className="text-[var(--muted)] leading-relaxed max-w-2xl mb-6">
-          {project.description}
+          {description}
         </p>
 
         <div className="flex flex-wrap gap-2">
-          {project.tech.map((t) => (
+          {project.tech.map((tech) => (
             <span
-              key={t}
+              key={tech}
               className="font-mono text-xs text-[var(--muted)] border border-[var(--border)] px-2 py-1"
             >
-              {t}
+              {tech}
             </span>
           ))}
         </div>
@@ -89,6 +92,19 @@ function ProjectCard({ project }: { project: Project }) {
 }
 
 export function Projects() {
+  const { t } = useLanguage()
+
+  const descriptions = [
+    t.projects.items.clinic.description,
+    t.projects.items.itpark.description,
+  ]
+
+  const statusLabels: Record<Project['status'], string> = {
+    Live: t.projects.status.live,
+    WIP: t.projects.status.wip,
+    Archived: t.projects.status.archived,
+  }
+
   return (
     <section id="projects" className="max-w-5xl mx-auto px-6 py-24">
       <motion.div
@@ -99,7 +115,7 @@ export function Projects() {
         className="flex items-center gap-4 mb-16"
       >
         <span className="font-mono text-xs text-[var(--muted)] tracking-widest">04</span>
-        <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Projects</h2>
+        <h2 className="text-3xl md:text-4xl font-bold tracking-tight">{t.projects.title}</h2>
         <div className="flex-1 h-px bg-[var(--border)]" />
       </motion.div>
 
@@ -110,8 +126,13 @@ export function Projects() {
         viewport={{ once: true }}
         className="space-y-6"
       >
-        {projects.map((project) => (
-          <ProjectCard key={project.name} project={project} />
+        {projects.map((project, i) => (
+          <ProjectCard
+            key={project.name}
+            project={project}
+            statusLabel={statusLabels[project.status]}
+            description={descriptions[i] ?? ''}
+          />
         ))}
       </motion.div>
     </section>
