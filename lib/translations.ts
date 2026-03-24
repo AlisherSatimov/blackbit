@@ -5,6 +5,7 @@ export const translations = {
     nav: {
       about: 'About',
       experience: 'Experience',
+      education: 'Education',
       skills: 'Skills',
       projects: 'Projects',
       contact: 'Contact',
@@ -33,6 +34,15 @@ export const translations = {
         outsideWork: 'Outside work',
         outsideWorkValue: 'Table tennis · CS2 · CoC · Puzzles',
       },
+    },
+    education: {
+      title: 'Education',
+      degree: "Bachelor's in Computer Engineering",
+      specialization: 'Software Engineer',
+      university: 'Tashkent University of Information Technologies named after Muhammad al-Khwarizmi — Urgench Branch',
+      short: 'TUIT — Urgench Branch',
+      location: 'Urgench, Uzbekistan',
+      period: '2019 — 2023',
     },
     experience: {
       title: 'Experience',
@@ -100,6 +110,7 @@ export const translations = {
     nav: {
       about: 'Обо мне',
       experience: 'Опыт',
+      education: 'Образование',
       skills: 'Навыки',
       projects: 'Проекты',
       contact: 'Контакты',
@@ -128,6 +139,15 @@ export const translations = {
         outsideWork: 'Вне работы',
         outsideWorkValue: 'Настольный теннис · CS2 · CoC · Головоломки',
       },
+    },
+    education: {
+      title: 'Образование',
+      degree: 'Бакалавр по направлению «Компьютерная инженерия»',
+      specialization: 'Инженер-программист',
+      university: 'Ташкентский университет информационных технологий им. Мухаммада ал-Хоразмий — Ургенчский филиал',
+      short: 'ТУИТ — Ургенчский филиал',
+      location: 'Ургенч, Узбекистан',
+      period: '2019 — 2023',
     },
     experience: {
       title: 'Опыт',
@@ -195,6 +215,7 @@ export const translations = {
     nav: {
       about: 'Men haqimda',
       experience: 'Tajriba',
+      education: 'Ta\'lim',
       skills: 'Ko\'nikmalar',
       projects: 'Loyihalar',
       contact: 'Aloqa',
@@ -223,6 +244,15 @@ export const translations = {
         outsideWork: 'Ishdan tashqari',
         outsideWorkValue: 'Stol tennisi · CS2 · CoC · Bosh qotirmalar',
       },
+    },
+    education: {
+      title: 'Ta\'lim',
+      degree: "Kompyuter injiniringi yo'nalishi bo'yicha bakalavr",
+      specialization: 'Muhandis dasturchi',
+      university: "Muhammad al-Xorazmiy nomidagi Toshkent Axborot Texnologiyalari Universiteti — Urganch Filiali",
+      short: 'TATU UF',
+      location: "Urganch, O'zbekiston",
+      period: '2019 — 2023',
     },
     experience: {
       title: 'Tajriba',

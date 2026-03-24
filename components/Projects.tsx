@@ -114,7 +114,7 @@ export function Projects() {
         transition={{ duration: 0.5 }}
         className="flex items-center gap-4 mb-16"
       >
-        <span className="font-mono text-xs text-[var(--muted)] tracking-widest">04</span>
+        <span className="font-mono text-xs text-[var(--muted)] tracking-widest">05</span>
         <h2 className="text-3xl md:text-4xl font-bold tracking-tight">{t.projects.title}</h2>
         <div className="flex-1 h-px bg-[var(--border)]" />
       </motion.div>
