@@ -58,6 +58,15 @@ export function Navbar() {
 
   const closeMenu = () => setMenuOpen(false)
 
+  const handleMobileNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault()
+    setMenuOpen(false)
+    setTimeout(() => {
+      const el = document.querySelector(href)
+      if (el) el.scrollIntoView({ behavior: 'smooth' })
+    }, 250)
+  }
+
   const navItems = [
     { href: '#about', label: t.nav.about },
     { href: '#experience', label: t.nav.experience },
@@ -146,7 +155,7 @@ export function Navbar() {
                 >
                   <a
                     href={link.href}
-                    onClick={closeMenu}
+                    onClick={(e) => handleMobileNavClick(e, link.href)}
                     className="font-mono text-xs tracking-widest uppercase text-[var(--muted)] hover:text-[var(--foreground)] transition-colors block py-2"
                   >
                     {link.label}
