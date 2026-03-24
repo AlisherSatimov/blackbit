@@ -94,6 +94,15 @@ export const translations = {
       subtext:
         'Open to freelance projects, full-time opportunities, or just a good conversation about tech, table tennis, or CS2.',
       email: 'Email',
+      form: {
+        name: 'Your name',
+        emailField: 'Your email',
+        message: 'Message',
+        send: 'Send Message',
+        sending: 'Sending...',
+        success: 'Message sent! I\'ll get back to you soon.',
+        error: 'Something went wrong. Please try again or reach out directly.',
+      },
     },
     footer: {
       rights: 'All rights reserved.',
@@ -199,6 +208,15 @@ export const translations = {
       subtext:
         'Открыт к фриланс-проектам, полной занятости или просто хорошему разговору о технологиях, настольном теннисе или CS2.',
       email: 'Эл. почта',
+      form: {
+        name: 'Ваше имя',
+        emailField: 'Ваш email',
+        message: 'Сообщение',
+        send: 'Отправить',
+        sending: 'Отправка...',
+        success: 'Сообщение отправлено! Я скоро свяжусь с вами.',
+        error: 'Что-то пошло не так. Попробуйте ещё раз или напишите напрямую.',
+      },
     },
     footer: {
       rights: 'Все права защищены.',
@@ -304,6 +322,15 @@ export const translations = {
       subtext:
         'Frilanс loyihalar, to\'liq bandlik yoki texnologiya, stol tennisi yoki CS2 haqida yaxshi suhbatga ochiqman.',
       email: 'Elektron pochta',
+      form: {
+        name: 'Ismingiz',
+        emailField: 'Emailingiz',
+        message: 'Xabar',
+        send: 'Yuborish',
+        sending: 'Yuborilmoqda...',
+        success: 'Xabar yuborildi! Tez orada javob beraman.',
+        error: 'Xatolik yuz berdi. Qayta urinib ko\'ring yoki to\'g\'ridan bog\'laning.',
+      },
     },
     footer: {
       rights: 'Barcha huquqlar himoyalangan.',
