@@ -13,6 +13,8 @@ const container = {
   show: { transition: { staggerChildren: 0.1 } },
 }
 
+const FACT_KEYS = ['age', 'experience', 'location', 'focus', 'status', 'outsideWork'] as const
+
 export function About() {
   const { t } = useLanguage()
   const f = t.about.facts
@@ -61,16 +63,16 @@ export function About() {
           </motion.p>
         </motion.div>
 
-        {/* Facts */}
+        {/* Facts — stable keys prevent remounting on language change */}
         <motion.div
           variants={container}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
         >
-          {facts.map((fact) => (
+          {facts.map((fact, i) => (
             <motion.div
-              key={fact.label}
+              key={FACT_KEYS[i]}
               variants={fadeUp}
               className="flex justify-between items-center py-4 border-b border-[var(--border)]"
             >
