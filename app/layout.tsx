@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Analytics } from '@vercel/analytics/next'
 import { ThemeProvider } from '@/components/ThemeProvider'
 import { LanguageProvider } from '@/contexts/LanguageContext'
+import { CustomCursor } from '@/components/CustomCursor'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -115,6 +116,7 @@ export default function RootLayout({
         />
       </head>
       <body>
+        <CustomCursor />
         <ThemeProvider>
           <LanguageProvider>{children}</LanguageProvider>
         </ThemeProvider>

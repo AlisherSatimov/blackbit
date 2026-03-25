@@ -44,6 +44,18 @@ body {
   font-family: var(--font-sans);
   transition: background-color 0.3s ease, color 0.3s ease;
   -webkit-font-smoothing: antialiased;
+  cursor: none;
+}
+
+/* Restore cursor for touch devices */
+@media (hover: none) {
+  body {
+    cursor: auto;
+  }
+}
+
+a, button, [role="button"], input, textarea, select, label {
+  cursor: none;
 }
 
 ::selection {

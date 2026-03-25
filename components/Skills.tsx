@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { skillGroups } from '@/lib/data'
 import { useLanguage } from '@/contexts/LanguageContext'
+import { TiltCard } from '@/components/TiltCard'
 
 const container = {
   hidden: {},
@@ -60,10 +61,10 @@ export function Skills() {
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
       >
         {skillGroups.map((group) => (
+          <TiltCard key={group.category}>
           <motion.div
-            key={group.category}
             variants={item}
-            className="border border-[var(--border)] p-6 hover:border-[var(--muted)] hover:shadow-lg transition-all duration-300"
+            className="border border-[var(--border)] p-6 hover:border-[var(--muted)] hover:shadow-lg transition-all duration-300 h-full"
           >
             <h3 className="font-mono text-xs tracking-widest uppercase text-[var(--muted)] mb-4">
               {categoryLabels[group.category] ?? group.category}
@@ -81,6 +82,7 @@ export function Skills() {
               ))}
             </ul>
           </motion.div>
+          </TiltCard>
         ))}
       </motion.div>
     </section>

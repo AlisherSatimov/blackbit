@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { useLanguage } from '@/contexts/LanguageContext'
 import { siteConfig } from '@/lib/config'
+import { MagneticButton } from '@/components/MagneticButton'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -95,18 +96,22 @@ export function Hero() {
 
         {/* CTAs */}
         <motion.div variants={fadeUp} className="flex flex-wrap gap-4">
-          <a
-            href="#projects"
-            className="px-6 py-3 bg-[var(--foreground)] text-[var(--background)] font-mono text-sm tracking-widest uppercase hover:opacity-80 transition-opacity"
-          >
-            {t.hero.viewWork}
-          </a>
-          <a
-            href="#contact"
-            className="px-6 py-3 border border-[var(--border)] text-[var(--foreground)] font-mono text-sm tracking-widest uppercase hover:border-[var(--foreground)] transition-colors"
-          >
-            {t.hero.getInTouch}
-          </a>
+          <MagneticButton>
+            <a
+              href="#projects"
+              className="block px-6 py-3 bg-[var(--foreground)] text-[var(--background)] font-mono text-sm tracking-widest uppercase hover:opacity-80 transition-opacity"
+            >
+              {t.hero.viewWork}
+            </a>
+          </MagneticButton>
+          <MagneticButton>
+            <a
+              href="#contact"
+              className="block px-6 py-3 border border-[var(--border)] text-[var(--foreground)] font-mono text-sm tracking-widest uppercase hover:border-[var(--foreground)] transition-colors"
+            >
+              {t.hero.getInTouch}
+            </a>
+          </MagneticButton>
         </motion.div>
       </motion.div>
 

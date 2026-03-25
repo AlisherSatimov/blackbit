@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { projects, Project } from '@/lib/data'
 import { useLanguage } from '@/contexts/LanguageContext'
+import { TiltCard } from '@/components/TiltCard'
 
 const container = {
   hidden: {},
@@ -69,25 +70,29 @@ function ProjectCard({ project, statusLabel, description }: {
 
   if (project.link) {
     return (
-      <motion.a
-        variants={item}
-        href={project.link}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="group block border border-[var(--border)] p-8 hover:border-[var(--foreground)] hover:shadow-lg transition-all duration-300"
-      >
-        {inner}
-      </motion.a>
+      <TiltCard>
+        <motion.a
+          variants={item}
+          href={project.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group block border border-[var(--border)] p-8 hover:border-[var(--foreground)] hover:shadow-lg transition-all duration-300"
+        >
+          {inner}
+        </motion.a>
+      </TiltCard>
     )
   }
 
   return (
+    <TiltCard>
     <motion.div
       variants={item}
       className="group border border-[var(--border)] p-8 hover:border-[var(--muted)] hover:shadow-lg transition-all duration-300"
     >
       {inner}
     </motion.div>
+    </TiltCard>
   )
 }
 
