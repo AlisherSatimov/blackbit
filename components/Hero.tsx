@@ -1,10 +1,11 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import { motion } from 'framer-motion'
+import { useEffect, useRef, useState } from 'react'
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
 import { useLanguage } from '@/contexts/LanguageContext'
 import { siteConfig } from '@/lib/config'
 import { MagneticButton } from '@/components/MagneticButton'
+import { HeroTerminal } from '@/components/HeroTerminal'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -26,6 +27,21 @@ export function Hero() {
   const [roleIndex, setRoleIndex] = useState(0)
   const [displayed, setDisplayed] = useState('')
   const [deleting, setDeleting] = useState(false)
+
+  const sectionRef = useRef<HTMLElement>(null)
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start start', 'end start'],
+  })
+
+  const rawY = useTransform(scrollYProgress, [0, 1], [0, -120])
+  const rawOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0])
+  const parallaxY = useSpring(rawY, { stiffness: 80, damping: 20, mass: 0.5 })
+
+  // Decorative elements — move at different speeds
+  const deco1Y = useTransform(scrollYProgress, [0, 1], [0, -60])
+  const deco2Y = useTransform(scrollYProgress, [0, 1], [0, -180])
+  const deco3Y = useTransform(scrollYProgress, [0, 1], [0, -90])
 
   useEffect(() => {
     setDisplayed('')
@@ -51,12 +67,22 @@ export function Hero() {
   }, [displayed, deleting, roleIndex, roles])
 
   return (
-    <section className="relative min-h-screen flex flex-col justify-center max-w-5xl mx-auto px-6 pt-24 pb-24 md:pb-16">
+    <section ref={sectionRef} className="relative min-h-screen flex flex-col justify-center max-w-5xl mx-auto px-6 pt-24 pb-24 md:pb-16 overflow-hidden">
+
+      {/* Mobile background — >_ particles behind text, desktop da hidden */}
+      <div className="absolute inset-0 lg:hidden pointer-events-none opacity-[0.15]">
+        <HeroTerminal className="!min-h-full h-full" />
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+      {/* Left — text content */}
       <motion.div
         variants={container}
         initial="hidden"
         animate="show"
-        className="flex flex-col"
+        style={{ y: parallaxY, opacity: rawOpacity }}
+        className="relative z-10 flex flex-col"
       >
         {/* Availability tag */}
         {siteConfig.available && (
@@ -115,11 +141,24 @@ export function Hero() {
         </motion.div>
       </motion.div>
 
+      {/* Right — 3D Terminal (desktop only) */}
+      <motion.div
+        initial={{ opacity: 0, x: 40 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8, delay: 0.6, ease: 'easeOut' }}
+        style={{ y: parallaxY }}
+        className="hidden lg:block"
+      >
+        <HeroTerminal />
+      </motion.div>
+
+      </div>
+
       {/* Scroll indicator — hidden on mobile/tablet to avoid overlap with buttons */}
-      <div className="hidden md:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-2 opacity-40">
+      <motion.div style={{ opacity: rawOpacity }} className="hidden md:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-2 opacity-40">
         <span className="font-mono text-xs text-[var(--muted)]">{t.hero.scroll}</span>
         <div className="w-px h-12 bg-[var(--muted)] animate-pulse" />
-      </div>
+      </motion.div>
     </section>
   )
 }
