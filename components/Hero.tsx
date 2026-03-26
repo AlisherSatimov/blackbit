@@ -93,15 +93,12 @@ export function Hero() {
           </motion.div>
         )}
 
-        {/* Name */}
-        <motion.h1
-          variants={fadeUp}
-          className="text-6xl md:text-8xl font-bold tracking-tight leading-none mb-6"
-        >
+        {/* Name — no initial:hidden so browser paints it immediately (LCP) */}
+        <h1 className="text-6xl md:text-8xl font-bold tracking-tight leading-none mb-6">
           Alisher
           <br />
           <span className="text-[var(--muted)]">Satimov</span>
-        </motion.h1>
+        </h1>
 
         {/* Typewriter */}
         <motion.div
