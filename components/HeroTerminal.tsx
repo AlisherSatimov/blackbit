@@ -72,7 +72,10 @@ export function HeroTerminal({ className = '' }: Props) {
     const ctx = cv.getContext('2d')
     if (!ctx) return
 
-    const DPR = Math.min(window.devicePixelRatio || 1, 2)
+    const isMobile = wrap.offsetWidth < 768
+    const DPR = isMobile ? 1 : Math.min(window.devicePixelRatio || 1, 2)
+    const gap = isMobile ? 10 : GAP
+    const waveAmpLocal = isMobile ? 0 : WAVE_AMP
     const W   = wrap.offsetWidth
     const H   = wrap.offsetHeight
     if (W === 0 || H === 0) return
@@ -84,6 +87,7 @@ export function HeroTerminal({ className = '' }: Props) {
     ctx.scale(DPR, DPR)
 
     let alive = true
+    let frameCount = 0
 
     const init = async () => {
       await document.fonts.ready
@@ -101,8 +105,8 @@ export function HeroTerminal({ className = '' }: Props) {
       const { data } = oc.getImageData(0, 0, W, H)
       const particles: Particle[] = []
 
-      for (let y = 0; y < H; y += GAP) {
-        for (let x = 0; x < W; x += GAP) {
+      for (let y = 0; y < H; y += gap) {
+        for (let x = 0; x < W; x += gap) {
           if (data[(y * W + x) * 4 + 3] > 110) {
             const angle  = Math.random() * Math.PI * 2
             const radius = Math.random() * Math.max(W, H) * 0.85
@@ -125,6 +129,10 @@ export function HeroTerminal({ className = '' }: Props) {
       const draw = () => {
         if (!alive) return
         rafRef.current = requestAnimationFrame(draw)
+        frameCount++
+        /* throttle to ~30fps on mobile to reduce CPU usage */
+        if (isMobile && frameCount % 2 !== 0) return
+
         ctx.clearRect(0, 0, W, H)
 
         const dark = document.documentElement.classList.contains('dark') ||
@@ -134,15 +142,15 @@ export function HeroTerminal({ className = '' }: Props) {
         const t = (performance.now() - t0) / 1000
 
         for (const p of particles) {
-          /* idle wave */
-          const wx = Math.sin(t * 1.2 + p.phase) * WAVE_AMP
-          const wy = Math.cos(t * 0.9 + p.phase + p.tx * 0.018) * WAVE_AMP * 0.7
+          /* idle wave — disabled on mobile */
+          const wx = Math.sin(t * 1.2 + p.phase) * waveAmpLocal
+          const wy = Math.cos(t * 0.9 + p.phase + p.tx * 0.018) * waveAmpLocal * 0.7
 
           /* spring toward (target + wave) */
           p.vx += (p.tx + wx - p.x) * SPRING
           p.vy += (p.ty + wy - p.y) * SPRING
 
-          /* mouse repulsion */
+          /* mouse / touch repulsion */
           const dx = p.x - mx
           const dy = p.y - my
           const d  = Math.sqrt(dx * dx + dy * dy)
@@ -169,7 +177,12 @@ export function HeroTerminal({ className = '' }: Props) {
       draw()
     }
 
-    init()
+    /* defer init — frees main thread for React hydration & LCP */
+    if (typeof requestIdleCallback !== 'undefined') {
+      requestIdleCallback(() => init(), { timeout: 800 })
+    } else {
+      setTimeout(() => init(), 0)
+    }
 
     /* unified pointer tracking — window level so pointer-events-none doesn't block */
     const getPos = (clientX: number, clientY: number) => {
@@ -213,7 +226,10 @@ export function HeroTerminal({ className = '' }: Props) {
       style={{ perspective: '900px' }}
       className={`flex items-center justify-center w-full min-h-[280px] lg:min-h-[440px] ${className}`}
     >
-      <motion.div style={{ rotateX: rotX, rotateY: rotY }}>
+      <motion.div
+        initial={{ rotateX: 0, rotateY: 0 }}
+        style={{ rotateX: rotX, rotateY: rotY, willChange: 'transform' }}
+      >
         <canvas ref={cvRef} className="block cursor-none" />
       </motion.div>
     </div>

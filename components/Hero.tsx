@@ -70,7 +70,7 @@ export function Hero() {
     <section ref={sectionRef} className="relative min-h-screen flex flex-col justify-center max-w-5xl mx-auto px-6 pt-24 pb-24 md:pb-16 overflow-hidden">
 
       {/* Mobile background — >_ particles behind text, desktop da hidden */}
-      <div className="absolute inset-0 lg:hidden pointer-events-none opacity-[0.15]">
+      <div className="absolute inset-0 lg:hidden pointer-events-none opacity-[0.15] overflow-hidden" style={{ contain: 'layout paint' }}>
         <HeroTerminal className="!min-h-full h-full" />
       </div>
 
