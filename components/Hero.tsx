@@ -109,13 +109,10 @@ export function Hero() {
           <span className="animate-blink">_</span>
         </motion.div>
 
-        {/* Bio */}
-        <motion.p
-          variants={fadeUp}
-          className="max-w-xl text-base md:text-lg text-[var(--muted)] leading-relaxed mb-12"
-        >
+        {/* Bio — no initial:hidden so LCP element paints at FCP */}
+        <p className="max-w-xl text-base md:text-lg text-[var(--muted)] leading-relaxed mb-12">
           {t.hero.bio}
-        </motion.p>
+        </p>
 
         {/* CTAs */}
         <motion.div variants={fadeUp} className="flex flex-wrap gap-4">
