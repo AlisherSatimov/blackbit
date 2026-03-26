@@ -179,11 +179,7 @@ export function HeroTerminal({ className = '', tilt = true }: Props) {
     }
 
     /* defer init — frees main thread for React hydration & LCP */
-    if (typeof requestIdleCallback !== 'undefined') {
-      requestIdleCallback(() => init(), { timeout: 800 })
-    } else {
-      setTimeout(() => init(), 0)
-    }
+    setTimeout(() => init(), 50)
 
     /* unified pointer tracking — window level so pointer-events-none doesn't block */
     const getPos = (clientX: number, clientY: number) => {
@@ -225,7 +221,7 @@ export function HeroTerminal({ className = '', tilt = true }: Props) {
     <div
       ref={wrapRef}
       style={{ perspective: '900px' }}
-      className={`flex items-center justify-center w-full min-h-[280px] lg:min-h-[440px] ${className}`}
+      className={`flex items-center justify-center w-full ${tilt ? 'min-h-[280px] lg:min-h-[440px]' : 'h-full'} ${className}`}
     >
       {tilt ? (
         <motion.div
