@@ -9,7 +9,7 @@ import { useLanguage } from '@/contexts/LanguageContext'
 
 const container = {
   hidden: {},
-  show: { transition: { staggerChildren: 0.08 } },
+  show: { transition: { staggerChildren: 0.1 } },
 }
 
 const item = {
@@ -65,7 +65,7 @@ export function Contact() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h3 className="text-4xl md:text-5xl font-bold tracking-tight leading-tight mb-6">
+          <h3 className="text-3xl md:text-4xl font-bold tracking-tight leading-tight mb-6">
             {t.contact.heading1}
             <br />
             <span className="text-[var(--muted)]">{t.contact.heading2}</span>
@@ -141,7 +141,9 @@ export function Contact() {
         >
           <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
             <div>
+              <label htmlFor="from_name" className="sr-only">{t.contact.form.name}</label>
               <input
+                id="from_name"
                 type="text"
                 name="from_name"
                 required
@@ -150,7 +152,9 @@ export function Contact() {
               />
             </div>
             <div>
+              <label htmlFor="reply_to" className="sr-only">{t.contact.form.emailField}</label>
               <input
+                id="reply_to"
                 type="email"
                 name="reply_to"
                 required
@@ -159,7 +163,9 @@ export function Contact() {
               />
             </div>
             <div>
+              <label htmlFor="message" className="sr-only">{t.contact.form.message}</label>
               <textarea
+                id="message"
                 name="message"
                 required
                 rows={6}

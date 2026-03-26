@@ -77,6 +77,13 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        {/* Google Fonts — preconnect prevents render-blocking */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap"
+          rel="stylesheet"
+        />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
@@ -101,6 +108,11 @@ export default function RootLayout({
                 addressLocality: 'Xorazm',
                 addressCountry: 'UZ',
               },
+              workLocation: {
+                '@type': 'VirtualLocation',
+                name: 'Remote',
+              },
+              image: 'https://blackbit.dev/og-image.png',
               sameAs: [
                 'https://github.com/AlisherSatimov',
                 'https://www.linkedin.com/in/alishersatimov/',

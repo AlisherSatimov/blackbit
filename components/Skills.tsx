@@ -8,7 +8,7 @@ import { TiltCard } from '@/components/TiltCard'
 const container = {
   hidden: {},
   show: {
-    transition: { staggerChildren: 0.08 },
+    transition: { staggerChildren: 0.1 },
   },
 }
 

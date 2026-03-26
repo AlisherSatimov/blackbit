@@ -40,7 +40,7 @@ export function Experience() {
       >
         <motion.div
           variants={item}
-          className="border border-[var(--border)] p-8 hover:border-[var(--muted)] hover:shadow-lg transition-all duration-300"
+          className="border border-[var(--border)] p-8 hover:border-[var(--foreground)] hover:shadow-lg transition-all duration-300"
         >
           <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
             <div>

@@ -58,7 +58,7 @@ export function CustomCursor() {
       document.documentElement.removeEventListener('mouseleave', onMouseLeaveWindow)
       document.documentElement.removeEventListener('mouseenter', onMouseEnterWindow)
     }
-  }, [cursorX, cursorY, visible])
+  }, [])
 
   return (
     <motion.div
