@@ -102,6 +102,7 @@ export function Projects() {
   const descriptions = [
     t.projects.items.clinic.description,
     t.projects.items.itpark.description,
+    t.projects.items.portfolio.description,
   ]
 
   const statusLabels: Record<Project['status'], string> = {

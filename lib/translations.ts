@@ -52,6 +52,12 @@ export const translations = {
         'Guiding students through real project development, code reviews, and best practices',
         'Preparing students for technical interviews and job placement',
       ],
+      freelance: 'Freelance',
+      freelanceTasks: [
+        'Built a full-scale dental clinic management system from scratch for a paying client',
+        'Designed role-based access control for Admin, Manager, and Dentist — covering patient records, per-tooth medical history, financials, billing, and appointments',
+        'Delivered a production-ready application currently live at 3dclinic.uz',
+      ],
     },
     skills: {
       title: 'Skills',
@@ -79,6 +85,10 @@ export const translations = {
         itpark: {
           description:
             'Official website for Yangiariq IT-Park — a government tech initiative in Uzbekistan. Leading the full frontend architecture and implementation for the public-facing platform.',
+        },
+        portfolio: {
+          description:
+            'Personal portfolio built from scratch — custom canvas particle system with spring physics and wave animation, scroll-driven transitions, dark/light mode, multilingual support (EN/RU/UZ), and a Lighthouse performance score of 99 on mobile.',
         },
       },
     },
@@ -166,6 +176,12 @@ export const translations = {
         'Сопровождаю студентов через реальные проекты, code review и лучшие практики',
         'Готовлю студентов к техническим собеседованиям и трудоустройству',
       ],
+      freelance: 'Фриланс',
+      freelanceTasks: [
+        'Разработал с нуля полноценную систему управления стоматологической клиникой под заказ',
+        'Реализовал ролевой доступ для Администратора, Менеджера и Стоматолога — учёт пациентов, история болезней по зубам, финансы, расчёты и запись на приём',
+        'Сдал production-ready приложение, работающее на 3dclinic.uz',
+      ],
     },
     skills: {
       title: 'Навыки',
@@ -193,6 +209,10 @@ export const translations = {
         itpark: {
           description:
             'Официальный сайт Yangiariq IT-Park — государственной технологической инициативы в Узбекистане. Руковожу полной frontend архитектурой и реализацией публичной платформы.',
+        },
+        portfolio: {
+          description:
+            'Личное портфолио, созданное с нуля — кастомная система частиц на Canvas с пружинной физикой и волновой анимацией, плавные переходы при скролле, тёмная/светлая тема, поддержка трёх языков (EN/RU/UZ) и Lighthouse 99 на мобильных.',
         },
       },
     },
@@ -280,6 +300,12 @@ export const translations = {
         'Talabalarni haqiqiy loyihalar, kod tahlili va eng yaxshi amaliyotlar orqali yo\'naltiraman',
         'Talabalarni texnik intervyu va ishga joylashishga tayyorlayman',
       ],
+      freelance: 'Frilanser',
+      freelanceTasks: [
+        'Buyurtma asosida tish klinikasi uchun to\'liq boshqaruv tizimini noldan yaratdim',
+        'Admin, Menejer va Stomatolog uchun rol asosida kirish tizimini ishlab chiqdim — bemorlar, tishlar tarixi, moliya, hisob-kitob va qabullar',
+        'Hozir 3dclinic.uz da ishlab turgan production darajasidagi ilovani topshirdim',
+      ],
     },
     skills: {
       title: 'Ko\'nikmalar',
@@ -307,6 +333,10 @@ export const translations = {
         itpark: {
           description:
             'Yangiariq IT-Park rasmiy sayti — O\'zbekistondagi davlat texnologiya tashabbusi. Ommaviy platformaning to\'liq frontend arxitekturasini yaratyapman.',
+        },
+        portfolio: {
+          description:
+            'Noldan qurilgan shaxsiy portfolio — Canvas\'da o\'z-o\'zimdan yozilgan zarralar tizimi (spring fizikasi va to\'lqin animatsiyasi), silliq scroll effektlari, qorong\'u/yorug\' rejim, ko\'p tillilik (EN/RU/UZ) va mobilda Lighthouse 99 ball.',
         },
       },
     },

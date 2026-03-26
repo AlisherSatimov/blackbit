@@ -79,6 +79,45 @@ export function Experience() {
             ))}
           </div>
         </motion.div>
+
+        <motion.div
+          variants={item}
+          className="border border-[var(--border)] p-8 hover:border-[var(--foreground)] hover:shadow-lg transition-all duration-300"
+        >
+          <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
+            <div>
+              <div className="flex items-center gap-3 mb-2">
+                <span className="font-mono text-xs tracking-widest text-[var(--muted)] uppercase">
+                  {t.experience.freelance}
+                </span>
+              </div>
+              <h3 className="text-xl md:text-2xl font-bold tracking-tight">
+                Frontend Developer — 3D Clinic
+              </h3>
+            </div>
+            <span className="font-mono text-xs text-[var(--muted)] shrink-0">Apr 2025 — Jul 2025</span>
+          </div>
+
+          <ul className="space-y-2 mb-6">
+            {t.experience.freelanceTasks.map((task, i) => (
+              <li key={i} className="flex gap-3 text-[var(--muted)] text-sm leading-relaxed">
+                <span className="text-[var(--muted)] opacity-40 mt-1 shrink-0">—</span>
+                {task}
+              </li>
+            ))}
+          </ul>
+
+          <div className="flex flex-wrap gap-2">
+            {['React.js', 'TypeScript', 'React Query', 'REST API'].map((tech) => (
+              <span
+                key={tech}
+                className="font-mono text-xs text-[var(--muted)] border border-[var(--border)] px-2 py-1"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+        </motion.div>
       </motion.div>
     </section>
   )

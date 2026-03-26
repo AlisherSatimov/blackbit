@@ -69,6 +69,18 @@ export const experiences: Experience[] = [
     ],
     tech: ['React.js', 'JavaScript', 'HTML/CSS', 'Git'],
   },
+  {
+    company: 'Freelance',
+    role: 'Frontend Developer — 3D Clinic',
+    period: 'Apr 2025 — Jul 2025',
+    current: false,
+    tasks: [
+      'Built a full-scale dental clinic management system from scratch for a paying client',
+      'Designed role-based access control for Admin, Manager, and Dentist — covering patient records, per-tooth medical history, financials, billing, and appointments',
+      'Delivered a production-ready application currently live at 3dclinic.uz',
+    ],
+    tech: ['React.js', 'TypeScript', 'React Query', 'REST API'],
+  },
 ]
 
 export interface Project {
@@ -97,6 +109,15 @@ export const projects: Project[] = [
       'Official website for Yangiariq IT-Park — a government tech initiative in Uzbekistan. Leading the full frontend architecture and implementation for the public-facing platform.',
     tech: ['Next.js', 'TypeScript', 'Tailwind CSS'],
     status: 'WIP',
+  },
+  {
+    number: '03',
+    name: 'blackbit.dev',
+    description:
+      'Personal portfolio built from scratch — custom canvas particle system with spring physics and wave animation, scroll-driven transitions, dark/light mode, multilingual support (EN/RU/UZ), and a Lighthouse performance score of 99 on mobile.',
+    tech: ['Next.js', 'TypeScript', 'Framer Motion', 'Canvas API', 'Tailwind CSS'],
+    link: 'https://blackbit.dev',
+    status: 'Live',
   },
 ]
 
