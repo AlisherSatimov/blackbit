@@ -71,7 +71,7 @@ export const experiences: Experience[] = [
   },
   {
     company: 'Freelance',
-    role: 'Frontend Developer — 3D Clinic',
+    role: 'Frontend Developer & Project Manager — 3D Clinic',
     period: 'Apr 2025 — Jul 2025',
     current: false,
     tasks: [

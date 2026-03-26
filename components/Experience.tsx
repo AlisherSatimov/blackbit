@@ -92,7 +92,7 @@ export function Experience() {
                 </span>
               </div>
               <h3 className="text-xl md:text-2xl font-bold tracking-tight">
-                Frontend Developer — 3D Clinic
+                Frontend Developer &amp; Project Manager — 3D Clinic
               </h3>
             </div>
             <span className="font-mono text-xs text-[var(--muted)] shrink-0">Apr 2025 — Jul 2025</span>
