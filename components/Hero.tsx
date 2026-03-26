@@ -71,7 +71,7 @@ export function Hero() {
 
       {/* Mobile background — >_ particles behind text, desktop da hidden */}
       <div className="absolute inset-0 lg:hidden pointer-events-none opacity-[0.15] overflow-hidden" style={{ contain: 'layout paint' }}>
-        <HeroTerminal className="!min-h-full h-full" />
+        <HeroTerminal tilt={false} className="!min-h-full h-full" />
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">

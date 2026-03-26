@@ -109,19 +109,19 @@ export function Navbar() {
 
         {/* Right controls */}
         <div className="flex items-center gap-3">
-          {/* Language switcher — always in DOM to prevent CLS */}
-          <div className={!mounted ? 'invisible pointer-events-none' : ''}>
-            <LanguageSwitcher />
-          </div>
+          {/* Language switcher */}
+          {mounted && <LanguageSwitcher />}
 
-          {/* Theme toggle — always in DOM to prevent CLS */}
-          <button
-            onClick={() => mounted && setTheme(theme === 'dark' ? 'light' : 'dark')}
-            className={`w-10 h-10 flex items-center justify-center border border-[var(--border)] hover:border-[var(--foreground)] text-[var(--muted)] hover:text-[var(--foreground)] transition-all rounded-sm ${!mounted ? 'invisible pointer-events-none' : ''}`}
-            aria-label="Toggle theme"
-          >
-            {mounted ? (theme === 'dark' ? <SunIcon /> : <MoonIcon />) : <SunIcon />}
-          </button>
+          {/* Theme toggle */}
+          {mounted && (
+            <button
+              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+              className="w-10 h-10 flex items-center justify-center border border-[var(--border)] hover:border-[var(--foreground)] text-[var(--muted)] hover:text-[var(--foreground)] transition-all rounded-sm"
+              aria-label="Toggle theme"
+            >
+              {theme === 'dark' ? <SunIcon /> : <MoonIcon />}
+            </button>
+          )}
 
           {/* Mobile menu button */}
           <button

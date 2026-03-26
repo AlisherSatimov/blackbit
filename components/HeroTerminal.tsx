@@ -20,9 +20,10 @@ const WAVE_AMP  = 2.8
 
 interface Props {
   className?: string
+  tilt?: boolean
 }
 
-export function HeroTerminal({ className = '' }: Props) {
+export function HeroTerminal({ className = '', tilt = true }: Props) {
   const wrapRef  = useRef<HTMLDivElement>(null)
   const cvRef    = useRef<HTMLCanvasElement>(null)
   const mouseRef = useRef({ x: -9999, y: -9999 })
@@ -74,8 +75,8 @@ export function HeroTerminal({ className = '' }: Props) {
 
     const isMobile = wrap.offsetWidth < 768
     const DPR = isMobile ? 1 : Math.min(window.devicePixelRatio || 1, 2)
-    const gap = isMobile ? 10 : GAP
-    const waveAmpLocal = isMobile ? 0 : WAVE_AMP
+    const gap = GAP
+    const waveAmpLocal = WAVE_AMP
     const W   = wrap.offsetWidth
     const H   = wrap.offsetHeight
     if (W === 0 || H === 0) return
@@ -226,12 +227,18 @@ export function HeroTerminal({ className = '' }: Props) {
       style={{ perspective: '900px' }}
       className={`flex items-center justify-center w-full min-h-[280px] lg:min-h-[440px] ${className}`}
     >
-      <motion.div
-        initial={{ rotateX: 0, rotateY: 0 }}
-        style={{ rotateX: rotX, rotateY: rotY, willChange: 'transform' }}
-      >
-        <canvas ref={cvRef} className="block cursor-none" />
-      </motion.div>
+      {tilt ? (
+        <motion.div
+          initial={{ rotateX: 0, rotateY: 0 }}
+          style={{ rotateX: rotX, rotateY: rotY, willChange: 'transform' }}
+        >
+          <canvas ref={cvRef} className="block cursor-none" />
+        </motion.div>
+      ) : (
+        <div style={{ willChange: 'transform' }}>
+          <canvas ref={cvRef} className="block cursor-none" />
+        </div>
+      )}
     </div>
   )
 }
