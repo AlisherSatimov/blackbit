@@ -95,7 +95,7 @@ export function CustomCursor() {
           scale: { type: 'spring', stiffness: 400, damping: 20 },
         }}
       >
-        &gt;-
+        &lt;-
       </motion.span>
     </motion.div>
   )
