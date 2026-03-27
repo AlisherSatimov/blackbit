@@ -90,6 +90,7 @@ export interface Project {
   tech: string[]
   link?: string
   status: 'Live' | 'WIP' | 'Archived'
+  image?: string
 }
 
 export const projects: Project[] = [
@@ -101,6 +102,7 @@ export const projects: Project[] = [
     tech: ['React.js', 'React Query', 'TypeScript', 'REST API'],
     link: 'https://3dclinic.uz',
     status: 'Live',
+    image: '/3dclinic-preview.jpg',
   },
   {
     number: '02',
@@ -118,6 +120,7 @@ export const projects: Project[] = [
     tech: ['Next.js', 'TypeScript', 'Framer Motion', 'Canvas API', 'Tailwind CSS'],
     link: 'https://blackbit.dev',
     status: 'Live',
+    image: '/blackbit-preview.png',
   },
 ]
 

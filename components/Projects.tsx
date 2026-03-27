@@ -27,8 +27,8 @@ function ProjectCard({ project, statusLabel, description }: {
   description: string
 }) {
   const inner = (
-    <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
-      <div className="flex-1">
+    <div className="flex flex-col md:grid md:grid-cols-3 gap-6">
+      <div className="md:col-span-2">
         <div className="flex items-center gap-3 mb-4">
           <span className="font-mono text-xs text-[var(--muted)]">{project.number}</span>
           <span className={`font-mono text-xs tracking-widest border px-2 py-0.5 ${statusStyle[project.status]}`}>
@@ -56,15 +56,30 @@ function ProjectCard({ project, statusLabel, description }: {
         </div>
       </div>
 
-      {project.link && (
-        <motion.div
-          className="text-2xl text-[var(--muted)] group-hover:text-[var(--foreground)] shrink-0"
-          whileHover={{ x: 4, y: -4 }}
-          transition={{ type: 'spring', stiffness: 400, damping: 20 }}
-        >
-          ↗
-        </motion.div>
-      )}
+      <div className="md:col-span-1 flex flex-col items-end self-center">
+        {project.image ? (
+          <div className="relative w-full overflow-hidden border border-[var(--border)] opacity-70 group-hover:opacity-100 transition-opacity duration-300">
+            <img src={project.image} alt={`${project.name} preview`} className="w-full object-cover object-top" />
+            {project.link && (
+              <motion.div
+                className="absolute top-2 right-2 text-xl text-[var(--muted)] group-hover:text-[var(--foreground)]"
+                whileHover={{ x: 4, y: -4 }}
+                transition={{ type: 'spring', stiffness: 400, damping: 20 }}
+              >
+                ↗
+              </motion.div>
+            )}
+          </div>
+        ) : project.link ? (
+          <motion.div
+            className="text-2xl text-[var(--muted)] group-hover:text-[var(--foreground)]"
+            whileHover={{ x: 4, y: -4 }}
+            transition={{ type: 'spring', stiffness: 400, damping: 20 }}
+          >
+            ↗
+          </motion.div>
+        ) : null}
+      </div>
     </div>
   )
 
