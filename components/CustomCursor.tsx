@@ -77,6 +77,7 @@ export function CustomCursor() {
     >
       <motion.span
         className="font-mono text-sm font-bold leading-none text-[var(--foreground)] block"
+        style={{ rotate: -45 }}
         animate={{
           textShadow: hovered
             ? [
@@ -94,7 +95,7 @@ export function CustomCursor() {
           scale: { type: 'spring', stiffness: 400, damping: 20 },
         }}
       >
-        &gt;_
+        &lt;-
       </motion.span>
     </motion.div>
   )
