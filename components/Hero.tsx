@@ -115,11 +115,11 @@ export function Hero() {
         </p>
 
         {/* CTAs */}
-        <motion.div variants={fadeUp} className="flex flex-wrap gap-4">
+        <motion.div variants={fadeUp} className="flex flex-wrap sm:flex-nowrap gap-4">
           <MagneticButton>
             <a
               href="#projects"
-              className="block px-6 py-3 bg-[var(--foreground)] text-[var(--background)] font-mono text-sm tracking-widest uppercase hover:opacity-80 transition-opacity"
+              className="block px-6 py-3 bg-[var(--foreground)] text-[var(--background)] font-mono text-sm tracking-widest uppercase hover:opacity-80 transition-opacity whitespace-nowrap"
             >
               {t.hero.viewWork}
             </a>
@@ -127,9 +127,18 @@ export function Hero() {
           <MagneticButton>
             <a
               href="#contact"
-              className="block px-6 py-3 border border-[var(--border)] text-[var(--foreground)] font-mono text-sm tracking-widest uppercase hover:border-[var(--foreground)] transition-colors"
+              className="block px-6 py-3 border border-[var(--border)] text-[var(--foreground)] font-mono text-sm tracking-widest uppercase hover:border-[var(--foreground)] transition-colors whitespace-nowrap"
             >
               {t.hero.getInTouch}
+            </a>
+          </MagneticButton>
+          <MagneticButton>
+            <a
+              href="/CV-AlisherSatimov.pdf"
+              download
+              className="block px-6 py-3 bg-[var(--foreground)] text-[var(--background)] font-mono text-sm tracking-widest uppercase hover:opacity-80 transition-opacity whitespace-nowrap"
+            >
+              {t.hero.downloadCV}
             </a>
           </MagneticButton>
         </motion.div>
