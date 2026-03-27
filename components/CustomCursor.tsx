@@ -14,6 +14,11 @@ export function CustomCursor() {
   const [hovered, setHovered] = useState(false)
   const [clicked, setClicked] = useState(false)
   const [visible, setVisible] = useState(false)
+  const [isTouch, setIsTouch] = useState(false)
+
+  useEffect(() => {
+    setIsTouch(!window.matchMedia('(pointer: fine)').matches)
+  }, [])
 
   useEffect(() => {
     const onMove = (e: MouseEvent) => {
@@ -59,6 +64,8 @@ export function CustomCursor() {
       document.documentElement.removeEventListener('mouseenter', onMouseEnterWindow)
     }
   }, [])
+
+  if (isTouch) return null
 
   return (
     <motion.div
