@@ -11,12 +11,14 @@ interface Particle {
   phase: number          // unique wave phase offset
 }
 
-const SPRING    = 0.058
-const DAMP      = 0.86
-const M_RAD     = 110
-const M_STR     = 9
-const GAP       = 6
-const WAVE_AMP  = 2.8
+const SPRING      = 0.058
+const DAMP        = 0.86
+const M_RAD       = 110
+const M_STR       = 9
+const GAP         = 6
+const WAVE_AMP    = 2.8
+const EXPLODE_RAD = 180
+const EXPLODE_STR = 22
 
 interface Props {
   className?: string
@@ -24,10 +26,12 @@ interface Props {
 }
 
 export function HeroTerminal({ className = '', tilt = true }: Props) {
-  const wrapRef  = useRef<HTMLDivElement>(null)
-  const cvRef    = useRef<HTMLCanvasElement>(null)
-  const mouseRef = useRef({ x: -9999, y: -9999 })
-  const rafRef   = useRef(0)
+  const wrapRef      = useRef<HTMLDivElement>(null)
+  const cvRef        = useRef<HTMLCanvasElement>(null)
+  const mouseRef     = useRef({ x: -9999, y: -9999 })
+  const rafRef       = useRef(0)
+  const isPressedRef = useRef(false)
+  const explosionRef = useRef<{ x: number; y: number } | null>(null)
 
   /* ── Scroll tilt (rotateX) + Mouse lean (rotateY) ── */
   const rotX = useSpring(0, { stiffness: 60, damping: 12, mass: 1.2 })
@@ -141,6 +145,8 @@ export function HeroTerminal({ className = '', tilt = true }: Props) {
         const rgb  = dark ? '255,255,255' : '12,12,12'
         const { x: mx, y: my } = mouseRef.current
         const t = (performance.now() - t0) / 1000
+        const explosion = explosionRef.current
+        if (explosion) explosionRef.current = null
 
         for (const p of particles) {
           /* idle wave — disabled on mobile */
@@ -151,14 +157,27 @@ export function HeroTerminal({ className = '', tilt = true }: Props) {
           p.vx += (p.tx + wx - p.x) * SPRING
           p.vy += (p.ty + wy - p.y) * SPRING
 
-          /* mouse / touch repulsion */
+          /* mouse repulsion (attraction when pressed) */
           const dx = p.x - mx
           const dy = p.y - my
           const d  = Math.sqrt(dx * dx + dy * dy)
           if (d < M_RAD && d > 0.5) {
-            const f = ((M_RAD - d) / M_RAD) ** 1.6 * M_STR
-            p.vx += (dx / d) * f
-            p.vy += (dy / d) * f
+            const f   = ((M_RAD - d) / M_RAD) ** 1.6 * M_STR
+            const dir = isPressedRef.current ? -0.6 : 1
+            p.vx += (dx / d) * f * dir
+            p.vy += (dy / d) * f * dir
+          }
+
+          /* explosion impulse on mouseup (one frame) */
+          if (explosion) {
+            const ex = explosion.x, ey = explosion.y
+            const edx = p.x - ex, edy = p.y - ey
+            const ed  = Math.sqrt(edx * edx + edy * edy)
+            if (ed < EXPLODE_RAD && ed > 0.5) {
+              const f = ((EXPLODE_RAD - ed) / EXPLODE_RAD) ** 1.2 * EXPLODE_STR
+              p.vx += (edx / ed) * f
+              p.vy += (edy / ed) * f
+            }
           }
 
           p.vx *= DAMP
@@ -197,9 +216,16 @@ export function HeroTerminal({ className = '', tilt = true }: Props) {
       if (t) mouseRef.current = getPos(t.clientX, t.clientY)
     }
     const onEnd = () => { mouseRef.current = { x: -9999, y: -9999 } }
+    const onMouseDown = () => { isPressedRef.current = true }
+    const onMouseUp   = (e: MouseEvent) => {
+      isPressedRef.current = false
+      explosionRef.current = getPos(e.clientX, e.clientY)
+    }
 
     window.addEventListener('mousemove',   onMouseMove,  { passive: true })
     window.addEventListener('mouseleave',  onEnd)
+    window.addEventListener('mousedown',   onMouseDown)
+    window.addEventListener('mouseup',     onMouseUp)
     window.addEventListener('touchstart',  onTouchStart, { passive: true })
     window.addEventListener('touchmove',   onTouchMove,  { passive: true })
     window.addEventListener('touchend',    onEnd)
@@ -210,6 +236,8 @@ export function HeroTerminal({ className = '', tilt = true }: Props) {
       cancelAnimationFrame(rafRef.current)
       window.removeEventListener('mousemove',   onMouseMove)
       window.removeEventListener('mouseleave',  onEnd)
+      window.removeEventListener('mousedown',   onMouseDown)
+      window.removeEventListener('mouseup',     onMouseUp)
       window.removeEventListener('touchstart',  onTouchStart)
       window.removeEventListener('touchmove',   onTouchMove)
       window.removeEventListener('touchend',    onEnd)
