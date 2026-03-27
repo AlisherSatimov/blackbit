@@ -20,7 +20,7 @@ export const translations = {
     roles: ['Frontend Developer', 'React Specialist', 'Next.js Engineer', 'UI Craftsman'],
     about: {
       title: 'About',
-      p1: "I'm a 24-year-old frontend developer from Xorazm, Uzbekistan. 4 years in tech, 3 of them building real products professionally.",
+      p1: "I'm a 24-year-old frontend developer from Xorazm, Uzbekistan. 3 years of professional experience building real products.",
       p2: "What pulled me into frontend was simple — I could build something and immediately see it working. That instant feedback loop matched my creative drive perfectly. I've been here ever since.",
       p3: "Right now I'm building the website for Yangiariq IT-Park while going deeper into advanced frontend architecture. I believe knowing why things work is just as important as knowing how.",
       facts: {
@@ -145,7 +145,7 @@ export const translations = {
     roles: ['Frontend разработчик', 'React специалист', 'Next.js инженер', 'UI мастер'],
     about: {
       title: 'Обо мне',
-      p1: 'Мне 24 года, я frontend разработчик из Хорезма, Узбекистан. 4 года в IT, из них 3 года профессионально создаю реальные продукты.',
+      p1: 'Мне 24 года, я frontend разработчик из Хорезма, Узбекистан. 3 года профессионального опыта в создании реальных продуктов.',
       p2: 'Во frontend меня привлекло одно — я могу создать что-то и сразу это увидеть. Эта мгновенная отдача идеально совпала с моим творческим порывом. С тех пор я здесь.',
       p3: 'Сейчас разрабатываю сайт для Yangiariq IT-Park и углубляюсь в продвинутую архитектуру frontend. Считаю, что понимать «почему» так же важно, как знать «как».',
       facts: {
@@ -270,7 +270,7 @@ export const translations = {
     roles: ['Frontend Dasturchi', 'React Mutaxassisi', 'Next.js Muhandisi', 'UI Ustasi'],
     about: {
       title: 'Men haqimda',
-      p1: '24 yoshli frontend dasturchiman, Xorazm, O\'zbekistondan. IT sohasida 4 yil, shundan 3 yilini professional darajada haqiqiy mahsulotlar yaratishga bag\'ishladim.',
+      p1: '24 yoshli frontend dasturchiman, Xorazm, O\'zbekistondan. 3 yillik professional tajriba, haqiqiy mahsulotlar yaratishga bag\'ishlangan.',
       p2: 'Frontend ga meni bir narsa jalb qildi — biror narsa yasab, uni darhol ko\'rish imkoniyati. Bu tezkor fikr-mulohaza mening ijodiy ishtiyoqimga aynan mos tushdi. O\'shandan beri shu yo\'ldaman.',
       p3: 'Hozirda Yangiariq IT-Park uchun sayt yaratyapman va frontend arxitekturasini chuqurroq o\'rganyapman. \"Nima uchun\" ni tushunish \"qanday\" ni bilish kabi muhim deb hisoblayman.',
       facts: {
