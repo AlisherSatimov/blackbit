@@ -28,6 +28,9 @@ export function Contact() {
     if (!formRef.current) return
 
     setStatus('sending')
+
+    const timeout = setTimeout(() => setStatus('error'), 10000)
+
     try {
       await emailjs.sendForm(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
@@ -35,9 +38,11 @@ export function Contact() {
         formRef.current,
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!,
       )
+      clearTimeout(timeout)
       setStatus('success')
       formRef.current.reset()
     } catch {
+      clearTimeout(timeout)
       setStatus('error')
     }
   }
@@ -192,13 +197,22 @@ export function Contact() {
               </motion.p>
             )}
             {status === 'error' && (
-              <motion.p
+              <motion.div
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="font-mono text-xs text-red-500 text-center"
+                className="flex flex-col items-center gap-2"
               >
-                {t.contact.form.error}
-              </motion.p>
+                <p className="font-mono text-xs text-red-500 text-center">
+                  {t.contact.form.error}
+                </p>
+                <button
+                  type="button"
+                  onClick={() => setStatus('idle')}
+                  className="font-mono text-xs text-[var(--muted)] hover:text-[var(--foreground)] transition-colors underline underline-offset-2"
+                >
+                  {t.contact.form.retry}
+                </button>
+              </motion.div>
             )}
           </form>
         </motion.div>

@@ -59,7 +59,7 @@ function ProjectCard({ project, statusLabel, description }: {
       <div className="md:col-span-1 flex flex-col items-end self-center">
         {project.image ? (
           <div className="relative w-full overflow-hidden border border-[var(--border)] opacity-70 group-hover:opacity-100 transition-opacity duration-300">
-            <img src={project.image} alt={`${project.name} preview`} className="w-full object-cover object-top" />
+            <img src={project.image} alt={`${project.name} preview`} loading="lazy" className="w-full object-cover object-top" />
             {project.link && (
               <motion.div
                 className="absolute top-2 right-2 text-xl text-[var(--muted)] group-hover:text-[var(--foreground)]"

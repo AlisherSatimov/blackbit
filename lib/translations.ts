@@ -114,6 +114,7 @@ export const translations = {
         sending: 'Sending...',
         success: 'Message sent! I\'ll get back to you soon.',
         error: 'Something went wrong. Please try again or reach out directly.',
+        retry: 'Try again',
       },
     },
     footer: {
@@ -240,6 +241,7 @@ export const translations = {
         sending: 'Отправка...',
         success: 'Сообщение отправлено! Я скоро свяжусь с вами.',
         error: 'Что-то пошло не так. Попробуйте ещё раз или напишите напрямую.',
+        retry: 'Попробовать снова',
       },
     },
     footer: {
@@ -366,6 +368,7 @@ export const translations = {
         sending: 'Yuborilmoqda...',
         success: 'Xabar yuborildi! Tez orada javob beraman.',
         error: 'Xatolik yuz berdi. Qayta urinib ko\'ring yoki to\'g\'ridan bog\'laning.',
+        retry: 'Qayta urinish',
       },
     },
     footer: {
