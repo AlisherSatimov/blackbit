@@ -131,6 +131,7 @@ export interface Certificate {
   year: string
   link: string
   description: string
+  image?: string
 }
 
 export const certificates: Certificate[] = [
@@ -142,6 +143,7 @@ export const certificates: Certificate[] = [
     link: 'https://www.coursera.org/account/accomplishments/specialization/XV0YWQQY105M',
     description:
       'A 9-course professional certificate covering React, HTML/CSS, JavaScript, UI/UX design principles, and modern frontend development practices.',
+    image: '/meta-cert-preview.png',
   },
 ]
 

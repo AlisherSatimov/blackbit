@@ -46,9 +46,9 @@ export function Certificates() {
             href={cert.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex flex-col md:flex-row md:items-center justify-between gap-4 border border-[var(--border)] p-6 hover:border-[var(--foreground)] hover:shadow-lg transition-all duration-300"
+            className="group grid grid-cols-1 md:grid-cols-3 gap-6 items-center border border-[var(--border)] p-6 hover:border-[var(--foreground)] hover:shadow-lg transition-all duration-300"
           >
-            <div className="flex-1">
+            <div className="md:col-span-2">
               <div className="flex items-center gap-3 mb-2">
                 <span className="font-mono text-xs text-[var(--muted)] tracking-widest uppercase">
                   {cert.platform} × {cert.issuer}
@@ -58,17 +58,32 @@ export function Certificates() {
               <h3 className="text-lg font-bold tracking-tight mb-2 group-hover:opacity-70 transition-opacity">
                 {cert.name}
               </h3>
-              <p className="text-sm text-[var(--muted)] leading-relaxed max-w-2xl">
+              <p className="text-sm text-[var(--muted)] leading-relaxed">
                 {t.certificates.description}
               </p>
             </div>
-            <motion.div
-              className="text-xl text-[var(--muted)] group-hover:text-[var(--foreground)] shrink-0"
-              whileHover={{ x: 4, y: -4 }}
-              transition={{ type: 'spring', stiffness: 400, damping: 20 }}
-            >
-              ↗
-            </motion.div>
+            <div className="md:col-span-1 flex flex-col items-end self-center">
+              {cert.image ? (
+                <div className="relative w-full overflow-hidden border border-[var(--border)] opacity-70 group-hover:opacity-100 transition-opacity duration-300">
+                  <img src={cert.image} alt={`${cert.name} preview`} loading="lazy" className="w-full object-cover object-top" />
+                  <motion.div
+                    className="absolute top-2 right-2 text-xl text-[var(--muted)] group-hover:text-[var(--foreground)]"
+                    whileHover={{ x: 4, y: -4 }}
+                    transition={{ type: 'spring', stiffness: 400, damping: 20 }}
+                  >
+                    ↗
+                  </motion.div>
+                </div>
+              ) : (
+                <motion.div
+                  className="text-xl text-[var(--muted)] group-hover:text-[var(--foreground)] shrink-0"
+                  whileHover={{ x: 4, y: -4 }}
+                  transition={{ type: 'spring', stiffness: 400, damping: 20 }}
+                >
+                  ↗
+                </motion.div>
+              )}
+            </div>
           </motion.a>
         ))}
       </motion.div>
