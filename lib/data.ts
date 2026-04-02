@@ -102,7 +102,7 @@ export const projects: Project[] = [
     tech: ['React.js', 'React Query', 'TypeScript', 'REST API'],
     link: 'https://3dclinic.uz',
     status: 'Live',
-    image: '/3dclinic-preview.jpg',
+    image: '/3dclinic-preview.webp',
   },
   {
     number: '02',
@@ -120,7 +120,7 @@ export const projects: Project[] = [
     tech: ['Next.js', 'TypeScript', 'Framer Motion', 'Canvas API', 'Tailwind CSS'],
     link: 'https://blackbit.dev',
     status: 'Live',
-    image: '/blackbit-preview.png',
+    image: '/blackbit-preview.webp',
   },
 ]
 
@@ -143,7 +143,7 @@ export const certificates: Certificate[] = [
     link: 'https://www.coursera.org/account/accomplishments/specialization/XV0YWQQY105M',
     description:
       'A 9-course professional certificate covering React, HTML/CSS, JavaScript, UI/UX design principles, and modern frontend development practices.',
-    image: '/meta-cert-preview.png',
+    image: '/meta-cert-preview.webp',
   },
 ]
 
