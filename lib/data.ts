@@ -96,6 +96,16 @@ export interface Project {
 export const projects: Project[] = [
   {
     number: '01',
+    name: 'LCTS',
+    description:
+      'Exam platform for language learning centers — a full IELTS-style mock test covering Listening, Reading, Writing, and Speaking. Rotating access codes replace fixed exam days, built-in proctoring keeps the session honest, and the Speaking mock plays generated question audio while recording each answer separately. Centers run students, groups, and level progression from a single admin panel.',
+    tech: ['React', 'TypeScript', 'React Query', 'Zustand', 'Next.js'],
+    link: 'https://lcts.uz',
+    status: 'Live',
+    image: '/lcts-preview.webp',
+  },
+  {
+    number: '02',
     name: '3D Clinic',
     description:
       'Full-scale dental clinic management system that eliminated paper-based workflows entirely. Role-based access for Admin, Manager, and Dentist — covering patient records, per-tooth medical history, financial management, billing, file-based analysis archive, and appointment tracking.',
@@ -105,7 +115,7 @@ export const projects: Project[] = [
     image: '/3dclinic-preview.webp',
   },
   {
-    number: '02',
+    number: '03',
     name: 'Yangiariq IT-Park',
     description:
       'Official website for Yangiariq IT-Park — a government tech initiative in Uzbekistan. Leading the full frontend architecture and implementation for the public-facing platform.',
@@ -113,7 +123,7 @@ export const projects: Project[] = [
     status: 'WIP',
   },
   {
-    number: '03',
+    number: '04',
     name: 'blackbit.dev',
     description:
       'Personal portfolio built from scratch — custom canvas particle system with spring physics and wave animation, scroll-driven transitions, dark/light mode, multilingual support (EN/RU/UZ), and a Lighthouse performance score of 99 on mobile.',

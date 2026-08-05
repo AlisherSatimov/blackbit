@@ -115,6 +115,7 @@ export function Projects() {
   const { t } = useLanguage()
 
   const descriptions = [
+    t.projects.items.lcts.description,
     t.projects.items.clinic.description,
     t.projects.items.itpark.description,
     t.projects.items.portfolio.description,

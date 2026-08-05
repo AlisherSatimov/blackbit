@@ -80,6 +80,10 @@ export const translations = {
         archived: 'Archived',
       },
       items: {
+        lcts: {
+          description:
+            'Exam platform for language learning centers — a full IELTS-style mock test covering Listening, Reading, Writing, and Speaking. Rotating access codes replace fixed exam days, built-in proctoring keeps the session honest, and the Speaking mock plays generated question audio while recording each answer separately. Centers run students, groups, and level progression from a single admin panel.',
+        },
         clinic: {
           description:
             'Full-scale dental clinic management system that eliminated paper-based workflows entirely. Role-based access for Admin, Manager, and Dentist — covering patient records, per-tooth medical history, financial management, billing, file-based analysis archive, and appointment tracking.',
@@ -207,6 +211,10 @@ export const translations = {
         archived: 'Архив',
       },
       items: {
+        lcts: {
+          description:
+            'Платформа для языковых учебных центров — полноценный пробный экзамен в формате IELTS: Listening, Reading, Writing и Speaking. Вместо фиксированного дня экзамена — сменяющиеся коды доступа, встроенная защита от списывания следит за сессией, а в Speaking система озвучивает вопросы и записывает каждый ответ отдельно. Центры ведут учеников, группы и переход по уровням в одной админ-панели.',
+        },
         clinic: {
           description:
             'Полноценная система управления стоматологической клиникой, полностью исключившая бумажный документооборот. Ролевой доступ для Администратора, Менеджера и Стоматолога — учёт пациентов, история болезней по каждому зубу, финансы, расчёты, архив анализов и запись на приём.',
@@ -334,6 +342,10 @@ export const translations = {
         archived: 'Arxiv',
       },
       items: {
+        lcts: {
+          description:
+            'Til o\'quv markazlari uchun imtihon platformasi — IELTS formatidagi to\'liq mock test: Listening, Reading, Writing va Speaking. Belgilangan imtihon kuni o\'rniga almashib turadigan kirish kodlari, sessiyani kuzatuvchi ichki nazorat tizimi, Speaking bo\'limida esa savollar ovoz bilan beriladi va har bir javob alohida yoziladi. Markazlar o\'quvchilar, guruhlar va daraja bosqichlarini yagona admin paneldan boshqaradi.',
+        },
         clinic: {
           description:
             'Tish klinikasi uchun to\'liq boshqaruv tizimi — qog\'oz hujjatlarni butunlay bartaraf etdi. Admin, Menejer va Stomatolog uchun rol asosida kirish: bemorlar, har bir tishning kasallik tarixi, moliya, hisob-kitob, tahlil arxivi va qabullarni boshqarish.',
