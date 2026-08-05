@@ -1,8 +1,10 @@
 'use client'
 
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useLanguage } from '@/contexts/LanguageContext'
 import { MagneticButton } from '@/components/MagneticButton'
+import { StudentsModal } from '@/components/StudentsModal'
 
 const container = {
   hidden: {},
@@ -14,11 +16,12 @@ const item = {
   show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
 }
 
-function ResultsButton({ label }: { label: string }) {
+function ResultsButton({ label, onClick }: { label: string; onClick?: () => void }) {
   return (
     <MagneticButton className="shrink-0">
       <button
         type="button"
+        onClick={onClick}
         className="group/results flex items-center gap-2 px-5 py-2.5 bg-[var(--foreground)] text-[var(--background)] font-mono text-xs tracking-widest uppercase hover:opacity-80 transition-opacity whitespace-nowrap"
       >
         {label}
@@ -30,6 +33,7 @@ function ResultsButton({ label }: { label: string }) {
 
 export function Experience() {
   const { t } = useLanguage()
+  const [studentsOpen, setStudentsOpen] = useState(false)
 
   return (
     <section id="experience" className="max-w-5xl mx-auto px-6 py-24">
@@ -94,7 +98,7 @@ export function Experience() {
                 </span>
               ))}
             </div>
-            <ResultsButton label={t.experience.results} />
+            <ResultsButton label={t.experience.results} onClick={() => setStudentsOpen(true)} />
           </div>
         </motion.div>
 
@@ -140,6 +144,8 @@ export function Experience() {
           </div>
         </motion.div>
       </motion.div>
+
+      <StudentsModal open={studentsOpen} onClose={() => setStudentsOpen(false)} />
     </section>
   )
 }

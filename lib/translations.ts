@@ -62,6 +62,62 @@ export const translations = {
         'Delivered a production-ready application currently live at 3dclinic.uz',
       ],
     },
+    students: {
+      title: 'My Students',
+      subtitle:
+        'School students I mentor — each one owns a live portfolio site they designed and built themselves.',
+      labels: {
+        school: 'School',
+        grade: 'Grade',
+        age: 'Age',
+        location: 'Location',
+        experience: 'Experience',
+        years: 'years',
+        stack: 'Stack',
+        projects: 'Projects',
+        certificates: 'Certificates',
+        languages: 'Languages',
+        startup: 'Own startup',
+        portfolio: 'Visit portfolio',
+        it: 'IT',
+        language: 'Language',
+        showMore: 'More certificates',
+        showLess: 'Show less',
+        close: 'Close',
+        langNames: {
+          uz: 'Uzbek',
+          ru: 'Russian',
+          en: 'English',
+        },
+      },
+      items: {
+        ilyosbek: {
+          bio: 'Full-stack oriented student — started with HTML and CSS, moved on to JavaScript and server-side logic. Built his personal portfolio from scratch, in three languages, with its own snake game built in.',
+          startupDescription:
+            'A marketplace connecting people with trusted tradespeople across Uzbekistan — search by trade and region, with booking handled on the site. Built and launched on his own.',
+        },
+        jorabek: {
+          bio: 'Started coding at 14 and has shipped the most of the group — six live sites, each written from scratch and deployed, plus eleven Google certificates covering IT support and UX design. Now moving from layouts into React.',
+          startupDescription:
+            'A smart queue app for Uzbekistan with separate customer and admin roles and live queue status, built on a Supabase backend. His first real mobile product.',
+        },
+        alobek: {
+          bio: 'Frontend developer with five live projects behind him — from a landing page to a quiz app and a personal finance tracker. Six Coursera certificates covering JavaScript, generative AI, and Git.',
+        },
+        madina: {
+          bio: 'The one student combining two directions at once — frontend and cybersecurity. Writes interfaces, and studies penetration testing and vulnerability assessment alongside them.',
+        },
+        gulirano: {
+          bio: 'Studying IT and cybersecurity, moving toward React and Tailwind. Designed and built her own portfolio, with a certificate in generative AI from Google Cloud.',
+        },
+        shabnam: {
+          bio: 'Frontend developer who thinks in problem–solution–result: her portfolio explains every project that way. Certified in JavaScript and Git, currently working through React.',
+        },
+        muxlisa: {
+          bio: '10th-grade student, born in 2008, working in Uzbek, Russian, and English. Focused on JavaScript and modern layout, with certificates from ITStudy and Coursera.',
+        },
+      },
+    },
     skills: {
       title: 'Skills',
       advanced: 'Advanced',
@@ -194,6 +250,62 @@ export const translations = {
         'Сдал production-ready приложение, работающее на 3dclinic.uz',
       ],
     },
+    students: {
+      title: 'Мои ученики',
+      subtitle:
+        'Школьники, которых я обучаю — у каждого свой рабочий сайт-портфолио, спроектированный и написанный им самим.',
+      labels: {
+        school: 'Школа',
+        grade: 'Класс',
+        age: 'Возраст',
+        location: 'Регион',
+        experience: 'Опыт',
+        years: 'года',
+        stack: 'Стек',
+        projects: 'Проекты',
+        certificates: 'Сертификаты',
+        languages: 'Языки',
+        startup: 'Собственный стартап',
+        portfolio: 'Открыть портфолио',
+        it: 'IT',
+        language: 'Язык',
+        showMore: 'Ещё сертификаты',
+        showLess: 'Свернуть',
+        close: 'Закрыть',
+        langNames: {
+          uz: 'Узбекский',
+          ru: 'Русский',
+          en: 'Английский',
+        },
+      },
+      items: {
+        ilyosbek: {
+          bio: 'Ученик с уклоном во full-stack — начал с HTML и CSS, дошёл до JavaScript и серверной логики. Своё портфолио написал с нуля, на трёх языках, со встроенной игрой «Змейка».',
+          startupDescription:
+            'Площадка, которая связывает людей с проверенными мастерами по всему Узбекистану — поиск по профессии и региону, запись прямо на сайте. Сделал и запустил сам.',
+        },
+        jorabek: {
+          bio: 'Начал программировать в 14 и выпустил больше всех в группе — шесть работающих сайтов, каждый написан с нуля и задеплоен, плюс одиннадцать сертификатов Google по IT-поддержке и UX-дизайну. Сейчас переходит от вёрстки к React.',
+          startupDescription:
+            'Приложение умной очереди для Узбекистана: отдельные роли клиента и админа, статус очереди в реальном времени, бэкенд на Supabase. Его первый настоящий мобильный продукт.',
+        },
+        alobek: {
+          bio: 'Frontend-разработчик с пятью работающими проектами — от лендинга до приложения-викторины и трекера личных финансов. Шесть сертификатов Coursera: JavaScript, генеративный ИИ и Git.',
+        },
+        madina: {
+          bio: 'Единственная в группе, кто совмещает два направления сразу — frontend и кибербезопасность. Пишет интерфейсы и параллельно изучает пентест и поиск уязвимостей.',
+        },
+        gulirano: {
+          bio: 'Учится по направлению IT и кибербезопасности, движется в сторону React и Tailwind. Своё портфолио спроектировала и написала сама, есть сертификат Google Cloud по генеративному ИИ.',
+        },
+        shabnam: {
+          bio: 'Frontend-разработчик, мыслящий схемой «проблема — решение — результат»: именно так описан каждый проект в её портфолио. Есть сертификаты по JavaScript и Git, сейчас осваивает React.',
+        },
+        muxlisa: {
+          bio: 'Ученица 10 класса, 2008 года рождения, свободно работает на узбекском, русском и английском. Сосредоточена на JavaScript и современной вёрстке, есть сертификаты ITStudy и Coursera.',
+        },
+      },
+    },
     skills: {
       title: 'Навыки',
       advanced: 'Продвинутый',
@@ -325,6 +437,62 @@ export const translations = {
         'Admin, Menejer va Stomatolog uchun rol asosida kirish tizimini ishlab chiqdim',
         'Hozir 3dclinic.uz da ishlab turgan production darajasidagi ilovani topshirdim',
       ],
+    },
+    students: {
+      title: 'O\'quvchilarim',
+      subtitle:
+        'Men o\'qitayotgan maktab o\'quvchilari — har birining o\'zi loyihalab, o\'zi yozgan ishlab turgan portfolio sayti bor.',
+      labels: {
+        school: 'Maktab',
+        grade: 'Sinf',
+        age: 'Yoshi',
+        location: 'Hudud',
+        experience: 'Tajriba',
+        years: 'yil',
+        stack: 'Texnologiyalar',
+        projects: 'Loyihalar',
+        certificates: 'Sertifikatlar',
+        languages: 'Tillar',
+        startup: 'Shaxsiy startapi',
+        portfolio: 'Portfolioni ochish',
+        it: 'IT',
+        language: 'Til',
+        showMore: 'Yana sertifikatlar',
+        showLess: 'Yopish',
+        close: 'Yopish',
+        langNames: {
+          uz: 'O\'zbek',
+          ru: 'Rus',
+          en: 'Ingliz',
+        },
+      },
+      items: {
+        ilyosbek: {
+          bio: 'Full-stack yo\'nalishidagi o\'quvchi — HTML va CSS dan boshlab, JavaScript va server mantiqigacha yetdi. Shaxsiy portfoliosini noldan, uch tilda yozgan, ichiga o\'zi qilgan "Ilon" o\'yinini ham joylagan.',
+          startupDescription:
+            'O\'zbekiston bo\'ylab ishonchli ustalarni odamlar bilan bog\'laydigan platforma — kasb va viloyat bo\'yicha qidiruv, bron qilish saytning o\'zida. O\'zi qurib, o\'zi ishga tushirgan.',
+        },
+        jorabek: {
+          bio: '14 yoshida kod yozishni boshlagan va guruhda eng ko\'p ish chiqargan — oltita ishlab turgan sayt, har biri noldan yozilib deploy qilingan, ustiga IT support va UX dizayn bo\'yicha o\'n bitta Google sertifikati. Hozir vyorstkadan React ga o\'tyapti.',
+          startupDescription:
+            'O\'zbekiston uchun aqlli navbat ilovasi: mijoz va admin rollari alohida, navbat holati jonli ko\'rinadi, backend Supabase\'da. Uning birinchi jiddiy mobil mahsuloti.',
+        },
+        alobek: {
+          bio: 'Beshta ishlab turgan loyihasi bor frontend dasturchi — landing sahifadan tortib viktorina ilovasi va shaxsiy moliya hisobigacha. JavaScript, generativ sun\'iy intellekt va Git bo\'yicha oltita Coursera sertifikati.',
+        },
+        madina: {
+          bio: 'Guruhdagi yagona o\'quvchi ikkita yo\'nalishni birga olib boradi — frontend va kiberxavfsizlik. Interfeys yozadi, yonida penetration testing va zaifliklarni aniqlashni o\'rganadi.',
+        },
+        gulirano: {
+          bio: 'IT va kiberxavfsizlik yo\'nalishida o\'qiydi, React va Tailwind tomon ketyapti. Portfoliosini o\'zi loyihalab, o\'zi yozgan; Google Cloud\'dan generativ sun\'iy intellekt sertifikati bor.',
+        },
+        shabnam: {
+          bio: '"Muammo — yechim — natija" tarzida fikrlaydigan frontend dasturchi: portfoliosidagi har bir loyiha aynan shunday tushuntirilgan. JavaScript va Git sertifikatlari bor, hozir React\'ni o\'zlashtiryapti.',
+        },
+        muxlisa: {
+          bio: '10-sinf o\'quvchisi, 2008-yilda tug\'ilgan, o\'zbek, rus va ingliz tillarida erkin ishlaydi. JavaScript va zamonaviy vyorstkaga yo\'naltirilgan; ITStudy va Coursera sertifikatlari bor.',
+        },
+      },
     },
     skills: {
       title: 'Ko\'nikmalar',
