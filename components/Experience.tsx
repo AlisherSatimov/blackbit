@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useLanguage } from '@/contexts/LanguageContext'
+import { MagneticButton } from '@/components/MagneticButton'
 
 const container = {
   hidden: {},
@@ -11,6 +12,20 @@ const container = {
 const item = {
   hidden: { opacity: 0, y: 16 },
   show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+}
+
+function ResultsButton({ label }: { label: string }) {
+  return (
+    <MagneticButton className="shrink-0">
+      <button
+        type="button"
+        className="group/results flex items-center gap-2 px-5 py-2.5 bg-[var(--foreground)] text-[var(--background)] font-mono text-xs tracking-widest uppercase hover:opacity-80 transition-opacity whitespace-nowrap"
+      >
+        {label}
+        <span className="transition-transform duration-300 group-hover/results:translate-x-1">→</span>
+      </button>
+    </MagneticButton>
+  )
 }
 
 export function Experience() {
@@ -68,15 +83,18 @@ export function Experience() {
             ))}
           </ul>
 
-          <div className="flex flex-wrap gap-2">
-            {['React.js', 'JavaScript', 'HTML/CSS', 'Git'].map((tech) => (
-              <span
-                key={tech}
-                className="font-mono text-xs text-[var(--muted)] border border-[var(--border)] px-2 py-1"
-              >
-                {tech}
-              </span>
-            ))}
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+            <div className="flex flex-wrap gap-2">
+              {['React.js', 'JavaScript', 'HTML/CSS', 'Git'].map((tech) => (
+                <span
+                  key={tech}
+                  className="font-mono text-xs text-[var(--muted)] border border-[var(--border)] px-2 py-1"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+            <ResultsButton label={t.experience.results} />
           </div>
         </motion.div>
 
@@ -107,15 +125,18 @@ export function Experience() {
             ))}
           </ul>
 
-          <div className="flex flex-wrap gap-2">
-            {['React.js', 'TypeScript', 'React Query', 'REST API'].map((tech) => (
-              <span
-                key={tech}
-                className="font-mono text-xs text-[var(--muted)] border border-[var(--border)] px-2 py-1"
-              >
-                {tech}
-              </span>
-            ))}
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+            <div className="flex flex-wrap gap-2">
+              {['React.js', 'TypeScript', 'React Query', 'REST API'].map((tech) => (
+                <span
+                  key={tech}
+                  className="font-mono text-xs text-[var(--muted)] border border-[var(--border)] px-2 py-1"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+            <ResultsButton label={t.experience.results} />
           </div>
         </motion.div>
       </motion.div>

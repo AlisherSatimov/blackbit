@@ -48,6 +48,7 @@ export const translations = {
     experience: {
       title: 'Experience',
       current: 'Current',
+      results: 'My Results',
       tasks: [
         'Teaching web development to school students — from zero to junior-ready level',
         'Guiding students through real project development, code reviews, and best practices',
@@ -179,6 +180,7 @@ export const translations = {
     experience: {
       title: 'Опыт',
       current: 'Текущее место',
+      results: 'Мои результаты',
       tasks: [
         'Обучаю школьников веб-разработке — с нуля до уровня junior',
         'Сопровождаю студентов через реальные проекты, code review и лучшие практики',
@@ -310,6 +312,7 @@ export const translations = {
     experience: {
       title: 'Tajriba',
       current: 'Hozirgi ish joyi',
+      results: 'Natijalarim',
       tasks: [
         'Maktab o\'quvchilariga veb dasturlashni o\'rgataman — noldan junior darajasigacha',
         'Talabalarni haqiqiy loyihalar, kod tahlili va eng yaxshi amaliyotlar orqali yo\'naltiraman',
